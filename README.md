@@ -1,2 +1,2 @@
 # DockerizedCI
-Complete dockerized CI chain 
+Complete dockerized CI chain.
