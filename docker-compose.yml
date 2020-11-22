@@ -1,7 +1,9 @@
 version: "3.8"
 services:
   jenkins:
-    image: jenkins/jenkins:2.249.3-lts-alpine
+    build:
+      context: ./dockerfiles
+      dockerfile: jenkins.Dockerfile
     ports:
       - "8080:8080"
       - "50000:50000"
