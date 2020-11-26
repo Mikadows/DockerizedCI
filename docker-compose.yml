@@ -24,6 +24,7 @@ services:
       - ./volumes/sonarqube/data:/opt/sonarqube/data
       - ./volumes/sonarqube/extensions:/opt/sonarqube/extensions
       - ./volumes/sonarqube/logs:/opt/sonarqube/logs
+      - ./volumes/sonarqube/conf:/opt/sonarqube/conf
     depends_on:
       - db
 
@@ -33,4 +34,5 @@ services:
       - POSTGRES_USER=sonar
       - POSTGRES_PASSWORD=sonar
     volumes:
-      - ./volumes/postgresql:/var/lib/postgresql
+      - ./volumes/postgresql/data:/var/lib/postgresql/data
+      - ./volumes/postgresql/lib:/var/lib/postgresql
