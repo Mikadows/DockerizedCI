@@ -1,0 +1,20 @@
+name: CI Docker Images
+
+on:
+  push:
+    branches: [ feature/github-action ]
+  pull_request:
+    branches: [ master ]
+
+jobs:
+  jenkins:
+    runs-on: ubuntu-latest
+
+    steps:
+      -
+        name: Checkout
+        uses: actions/checkout@v2
+      -
+        name: Build custom jenkins image
+        run: docker build -t mikadows/jenkins:latest -f dockerfiles/jenkins.Dockerfile ./dockerfiles/
+        
