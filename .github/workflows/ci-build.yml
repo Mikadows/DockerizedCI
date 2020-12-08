@@ -17,4 +17,8 @@ jobs:
       -
         name: Build custom jenkins image
         run: docker build -t mikadows/jenkins:latest -f dockerfiles/jenkins.Dockerfile ./dockerfiles/
-        
+      -
+        name: Push previous image on DockerHub
+        run: |
+          echo ${{ secrets.DOCKERHUB_PASSWORD }} | docker login $DOCKER_REGISTRY --username ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+          docker push mikadows/jenkins:latest
